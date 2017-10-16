@@ -24,11 +24,9 @@ export default class Calculations extends React.Component {
 
   render() {
   	return (
-    	<View>
     	<Text>
-    	{parseInt(this.props.number1) ? parseInt(this.props.number1)-1 : 0}
+    	{this.minus1()}
     	</Text>
-    	</View>
     )
 	}
 }
