@@ -14,6 +14,7 @@ import { styles } from './Styles';
 import { MonoText } from '../components/StyledText';
 import { StackNavigator } from 'react-navigation';
 import TextField from 'react-native-md-textinput';
+import Calculations from '../components/calculations'
 
 
 export default class HomeScreen extends React.Component {
@@ -51,7 +52,13 @@ export default class HomeScreen extends React.Component {
               style={styles.welcomeImage}
             />
           </View>
-
+           <TextField
+        highlightColor={'#00BCD4'} 
+        label={'Input1 on Home Screen'}
+        onChangeText={(text) => this.setState({text})}
+        dense={true}
+        value={this.state.text}
+      />
           <View style={styles.getStartedContainer}>
             {this._maybeRenderDevelopmentModeWarning()}
 
@@ -62,7 +69,7 @@ export default class HomeScreen extends React.Component {
           </View>
 
 
-
+          <Calculations number1={this.state.text}/>
         </ScrollView>
 
         <View style={styles.tabBarInfoContainer}>
