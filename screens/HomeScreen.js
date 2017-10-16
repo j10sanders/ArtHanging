@@ -13,6 +13,8 @@ import { WebBrowser } from 'expo';
 import { styles } from './Styles';
 import { MonoText } from '../components/StyledText';
 import { StackNavigator } from 'react-navigation';
+import TextField from 'react-native-md-textinput';
+
 
 export default class HomeScreen extends React.Component {
   constructor(props) {
@@ -24,6 +26,14 @@ export default class HomeScreen extends React.Component {
   // };
 
   //need to be able to set state.
+
+  // <TextField
+  //       highlightColor={'#00BCD4'} 
+  //       label={'Input1 on Home Screen'}
+  //       onChangeText={(text) => this.setState({text})}
+  //       dense={true}
+  //       value={this.state.text}
+  //     />
 
   render() {
     return (
@@ -45,42 +55,19 @@ export default class HomeScreen extends React.Component {
           <View style={styles.getStartedContainer}>
             {this._maybeRenderDevelopmentModeWarning()}
 
-            <Text style={styles.getStartedText}>Get started by opening</Text>
-
-            <View
-              style={[
-                styles.codeHighlightContainer,
-                styles.homeScreenFilename,
-              ]}>
-              <MonoText style={styles.codeHighlightText}>
-                screens/HomeScreen.js
-              </MonoText>
-            </View>
 
             <Text style={styles.getStartedText}>
               Hello World.
             </Text>
           </View>
-          <TextInput
-        style={{height: 40, borderColor: 'gray', borderWidth: 1}}
-        onChangeText={(text) => this.setState({text})}
-        value={this.state.text}
-      />
 
-          <View style={styles.helpContainer}>
-            <TouchableOpacity
-              onPress={this._handleHelpPress}
-              style={styles.helpLink}>
-              <Text style={styles.helpLinkText}>
-                Help, it didn’t automatically reload!
-              </Text>
-            </TouchableOpacity>
-          </View>
+
+
         </ScrollView>
 
         <View style={styles.tabBarInfoContainer}>
           <Text style={styles.tabBarInfoText}>
-            This is the bottom "Tab Bar".  I'll probably get rid of it.
+            I'll probably get rid of this "tabBarInfoContainer"
           </Text>
 
           <View
