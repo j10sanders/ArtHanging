@@ -2,14 +2,20 @@ import { Notifications } from 'expo';
 import React from 'react';
 import { StackNavigator } from 'react-navigation';
 
+import SimpleTabs from './SimpleTabs';
 import MainTabNavigator from './MainTabNavigator';
 import registerForPushNotificationsAsync from '../api/registerForPushNotificationsAsync';
 
 const RootStackNavigator = StackNavigator(
   {
-    Main: {
-      screen: MainTabNavigator,
-    },
+    SimpleTabs: {
+    name: 'Tabs Example',
+    description: 'Tabs following platform conventions',
+    screen: SimpleTabs,
+  },
+    // Main: {
+    //   screen: MainTabNavigator,
+    // },
   },
   {
     navigationOptions: () => ({
