@@ -20,11 +20,12 @@ import Calculations from '../components/calculations'
 export default class HomeScreen extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { text: 'Useless Placeholder' };
+    this.state = { width: "",
+                  height: "",
+                  center: "",
+                  dRings: "", 
+                  D_Top: "",};
   }
-  // static navigationOptions = {
-  //   header: null,
-  // };
 
   //need to be able to set state.
 
@@ -39,7 +40,7 @@ export default class HomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <ScrollView
+        <ScrollView 
           style={styles.container}
           contentContainerStyle={styles.contentContainer}>
           <View style={styles.welcomeContainer}>
@@ -52,13 +53,46 @@ export default class HomeScreen extends React.Component {
               style={styles.welcomeImage}
             />
           </View>
-           <TextField
-        highlightColor={'#00BCD4'} 
-        label={'Input1 on Home Screen'}
-        onChangeText={(text) => this.setState({text})}
+    <View>
+      <TextField
+        highlightColor={'#00BCD4'}
+        label={'Height of work'}
+        onChangeText={(text) => this.setState({height: text})}
         dense={true}
-        value={this.state.text}
+        value={this.state.height}
       />
+      <TextField
+        highlightColor={'#00BCD4'}
+        label={'Width of work'}
+        onChangeText={(text) => this.setState({width: text})}
+        dense={true}
+        value={this.state.width}
+      />
+      <TextField
+        highlightColor={'#00BCD4'}
+        label={'Center (at eye level)'}
+        onChangeText={(text) => this.setState({center: text})}
+        dense={true}
+        value={this.state.center}
+      />
+
+      <TextField
+        highlightColor={'#00BCD4'}
+        label={'Distance between D-rings'}
+        onChangeText={(text) => this.setState({dRings: text})}
+        dense={true}
+        value={this.state.dRings}
+      />
+      <TextField
+        highlightColor={'#00BCD4'}
+        label={'Distance between D-ring and top of work'}
+        onChangeText={(text) => this.setState({D_Top: text})}
+        dense={true}
+        value={this.state.D_Top}
+      />
+
+      <Calculations nums={this.state} />
+      </View>
           <View style={styles.getStartedContainer}>
             {this._maybeRenderDevelopmentModeWarning()}
 
@@ -69,7 +103,7 @@ export default class HomeScreen extends React.Component {
           </View>
 
 
-          <Calculations number1={this.state.text}/>
+          
         </ScrollView>
 
         <View style={styles.tabBarInfoContainer}>
