@@ -25,17 +25,7 @@ export default class HomeScreen extends React.Component {
                   center: "",
                   dRings: "", 
                   D_Top: "",};
-  }
-
-  //need to be able to set state.
-
-  // <TextField
-  //       highlightColor={'#00BCD4'} 
-  //       label={'Input1 on Home Screen'}
-  //       onChangeText={(text) => this.setState({text})}
-  //       dense={true}
-  //       value={this.state.text}
-  //     />
+                }
 
   render() {
     return (
@@ -47,13 +37,14 @@ export default class HomeScreen extends React.Component {
             <Image
               source={
                 __DEV__
-                  ? require('../assets/images/robot-dev.png')
-                  : require('../assets/images/robot-prod.png')
+                  ? require('../assets/images/frame.png')
+                  : require('../assets/images/frame.png')
               }
               style={styles.welcomeImage}
             />
           </View>
     <View>
+    <ScrollView >
       <TextField
         highlightColor={'#00BCD4'}
         label={'Height of work'}
@@ -61,6 +52,8 @@ export default class HomeScreen extends React.Component {
         dense={true}
         value={this.state.height}
       />
+      </ScrollView>
+      <ScrollView >
       <TextField
         highlightColor={'#00BCD4'}
         label={'Width of work'}
@@ -68,6 +61,8 @@ export default class HomeScreen extends React.Component {
         dense={true}
         value={this.state.width}
       />
+      </ScrollView>
+      <ScrollView >
       <TextField
         highlightColor={'#00BCD4'}
         label={'Center (at eye level)'}
@@ -75,7 +70,8 @@ export default class HomeScreen extends React.Component {
         dense={true}
         value={this.state.center}
       />
-
+      </ScrollView>
+      <ScrollView >
       <TextField
         highlightColor={'#00BCD4'}
         label={'Distance between D-rings'}
@@ -83,6 +79,8 @@ export default class HomeScreen extends React.Component {
         dense={true}
         value={this.state.dRings}
       />
+      </ScrollView>
+      <ScrollView >
       <TextField
         highlightColor={'#00BCD4'}
         label={'Distance between D-ring and top of work'}
@@ -90,34 +88,10 @@ export default class HomeScreen extends React.Component {
         dense={true}
         value={this.state.D_Top}
       />
-
-      <Calculations nums={this.state} />
-      </View>
-          <View style={styles.getStartedContainer}>
-            {this._maybeRenderDevelopmentModeWarning()}
-
-
-            <Text style={styles.getStartedText}>
-              Hello World.
-            </Text>
-          </View>
-
-
-          
-        </ScrollView>
-
-        <View style={styles.tabBarInfoContainer}>
-          <Text style={styles.tabBarInfoText}>
-            I'll probably get rid of this "tabBarInfoContainer"
-          </Text>
-
-          <View
-            style={[styles.codeHighlightContainer, styles.navigationFilename]}>
-            <MonoText style={styles.codeHighlightText}>
-              navigation/MainTabNavigator.js
-            </MonoText>
-          </View>
+      </ScrollView>
         </View>
+        </ScrollView>
+            <Calculations nums={this.state} />
       </View>
     );
   }
