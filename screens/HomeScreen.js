@@ -31,7 +31,6 @@ export default class HomeScreen extends React.Component {
   inputFocused (refName) {
     setTimeout(() => {
       let scrollResponder = this.refs.scrollView.getScrollResponder();
-      console.log("inputFocused")
       scrollResponder.scrollResponderScrollNativeHandleToKeyboard(
         findNodeHandle(this.refs[refName]),
         110, //additionalOffset
@@ -49,9 +48,7 @@ export default class HomeScreen extends React.Component {
         <ScrollView 
           ref='scrollView'
           style={styles.container}
-          contentContainerStyle={styles.contentContainer}
-          keyboardDismissMode={'on-drag'}
-          >
+          contentContainerStyle={styles.contentContainer}>
           <View style={styles.welcomeContainer}>
             <Image
               source={
@@ -63,7 +60,7 @@ export default class HomeScreen extends React.Component {
             />
           </View>
 
-    <View style={{flex:1}}>
+    <View>
       <TextField
         highlightColor={'#00BCD4'}
         label={'Height of work'}
@@ -109,6 +106,51 @@ export default class HomeScreen extends React.Component {
         dense={true}
         onFocus={this.inputFocused.bind(this, 'D_Top')}
         value={this.state.D_Top}
+      />
+      <TextField
+        highlightColor={'#00BCD4'}
+        label={'Distance between D-rings'}
+        ref='dRings'
+        onChangeText={(text) => this.setState({dRings: text})}
+        dense={true}
+        onFocus={this.inputFocused.bind(this, 'dRings')}
+        value={this.state.dRings}
+      />
+      <TextField
+        highlightColor={'#00BCD4'}
+        label={'Distance between D-rings'}
+        ref='dRings'
+        onChangeText={(text) => this.setState({dRings: text})}
+        dense={true}
+        onFocus={this.inputFocused.bind(this, 'dRings')}
+        value={this.state.dRings}
+      />
+      <TextField
+        highlightColor={'#00BCD4'}
+        label={'Distance between D-rings'}
+        ref='dRings'
+        onChangeText={(text) => this.setState({dRings: text})}
+        dense={true}
+        onFocus={this.inputFocused.bind(this, 'dRings')}
+        value={this.state.dRings}
+      />
+      <TextField
+        highlightColor={'#00BCD4'}
+        label={'Distance between D-rings'}
+        ref='dRings'
+        onChangeText={(text) => this.setState({dRings: text})}
+        dense={true}
+        onFocus={this.inputFocused.bind(this, 'dRings')}
+        value={this.state.dRings}
+      />
+      <TextField
+        highlightColor={'#00BCD4'}
+        label={'Distance between D-rings'}
+        ref='dRings'
+        onChangeText={(text) => this.setState({dRings: text})}
+        dense={true}
+        onFocus={this.inputFocused.bind(this, 'dRings')}
+        value={this.state.dRings}
       />
         </View>
         </ScrollView>
