@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   View,
   TextInput,
+  findNodeHandle,
 } from 'react-native';
 import { WebBrowser } from 'expo';
 import { styles } from './Styles';
@@ -27,12 +28,30 @@ export default class HomeScreen extends React.Component {
                   D_Top: "",};
                 }
 
+  inputFocused (refName) {
+    setTimeout(() => {
+      let scrollResponder = this.refs.scrollView.getScrollResponder();
+      console.log("inputFocused")
+      scrollResponder.scrollResponderScrollNativeHandleToKeyboard(
+        findNodeHandle(this.refs[refName]),
+        110, //additionalOffset
+        true
+      );
+    }, 100);
+}
+
+
+
+
   render() {
     return (
       <View style={styles.container}>
         <ScrollView 
+          ref='scrollView'
           style={styles.container}
-          contentContainerStyle={styles.contentContainer}>
+          contentContainerStyle={styles.contentContainer}
+          keyboardDismissMode={'on-drag'}
+          >
           <View style={styles.welcomeContainer}>
             <Image
               source={
@@ -43,52 +62,54 @@ export default class HomeScreen extends React.Component {
               style={styles.welcomeImage}
             />
           </View>
-    <View>
-    <ScrollView >
+
+    <View style={{flex:1}}>
       <TextField
         highlightColor={'#00BCD4'}
         label={'Height of work'}
+        ref='height'
         onChangeText={(text) => this.setState({height: text})}
         dense={true}
+        onFocus={this.inputFocused.bind(this, 'height')}
         value={this.state.height}
       />
-      </ScrollView>
-      <ScrollView >
       <TextField
         highlightColor={'#00BCD4'}
         label={'Width of work'}
+        ref='width'
         onChangeText={(text) => this.setState({width: text})}
         dense={true}
+        onFocus={this.inputFocused.bind(this, 'width')}
         value={this.state.width}
       />
-      </ScrollView>
-      <ScrollView >
       <TextField
         highlightColor={'#00BCD4'}
         label={'Center (at eye level)'}
+        ref='center'
         onChangeText={(text) => this.setState({center: text})}
         dense={true}
+        onFocus={this.inputFocused.bind(this, 'center')}
         value={this.state.center}
       />
-      </ScrollView>
-      <ScrollView >
+
       <TextField
         highlightColor={'#00BCD4'}
         label={'Distance between D-rings'}
+        ref='dRings'
         onChangeText={(text) => this.setState({dRings: text})}
         dense={true}
+        onFocus={this.inputFocused.bind(this, 'dRings')}
         value={this.state.dRings}
       />
-      </ScrollView>
-      <ScrollView >
       <TextField
         highlightColor={'#00BCD4'}
         label={'Distance between D-ring and top of work'}
+        ref='D_Top'
         onChangeText={(text) => this.setState({D_Top: text})}
         dense={true}
+        onFocus={this.inputFocused.bind(this, 'D_Top')}
         value={this.state.D_Top}
       />
-      </ScrollView>
         </View>
         </ScrollView>
             <Calculations nums={this.state} />

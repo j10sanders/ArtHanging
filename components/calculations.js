@@ -15,11 +15,6 @@ export default class Calculations extends React.Component {
   constructor(props) {
     super(props);
   }
-  
-  // static getDefaultProps(){
-  //   console.log(this.props); //note this logs undefined
-  //   return {height : 1};
-  // }
 
   hangingPoint(){ 
   	//let hP = parseInt(this.props.nums.height)/ ? parseInt(this.props.nums.number1)-1 : 0

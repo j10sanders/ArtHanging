@@ -21,6 +21,7 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
   },
   contentContainer: {
+    flex: 0,
     paddingTop: 30,
   },
   welcomeContainer: {
